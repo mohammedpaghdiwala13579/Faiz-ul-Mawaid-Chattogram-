@@ -3,7 +3,7 @@
   "short_name": "Chattogram",
   "description": "Daily tiffin menu for Chattogram - Fresh meals delivered daily",
   "start_url": ".",
-  "display": "standalone",
+  "display": "standalonSe",
   "theme_color": "#f4ede5",
   "background_color": "#f4ede5",
   "orientation": "portrait",
@@ -17,7 +17,7 @@
     },
     {
       "src": "https://i.ibb.co.com/qLsxHhDf/logo-color.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
