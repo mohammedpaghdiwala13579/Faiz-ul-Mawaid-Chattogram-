@@ -1,4 +1,6 @@
-const CACHE_NAME = 'chattogram-tiffin-v1';
+// ⚠️ IMPORTANT: Bump this version string every time you update index.html
+// e.g. v2 → v3 → v4 ...  This forces old caches to be replaced.
+const CACHE_NAME = 'chattogram-tiffin-v2';
 const urlsToCache = [
   '.',
   'index.html',
@@ -17,32 +19,44 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - Network-first for HTML, cache-first for everything else
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
+  const url = new URL(event.request.url);
+  const isHTML = event.request.destination === 'document' ||
+                 url.pathname.endsWith('.html') ||
+                 url.pathname === '/' ||
+                 url.pathname === '.';
+
+  if (isHTML) {
+    // NETWORK FIRST for HTML pages — always get fresh markup
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (response && response.status === 200 && response.type === 'basic') {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
+          }
           return response;
-        }
-        return fetch(event.request).then(
-          response => {
-            // Check if valid response
+        })
+        .catch(() => caches.match(event.request)) // fallback to cache if offline
+    );
+  } else {
+    // CACHE FIRST for static assets (fonts, images, etc.)
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => {
+          if (response) return response;
+          return fetch(event.request).then(response => {
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
-            // Clone response
             const responseToCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
             return response;
-          }
-        );
-      })
-  );
+          });
+        })
+    );
+  }
 });
 
 // Activate event - clean up old caches
