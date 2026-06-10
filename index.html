@@ -631,22 +631,33 @@
     });
   }
 
-  // Register Service Worker — auto-reload when a new SW takes over
+  // ================= SERVICE WORKER =================
+  // The ?v= hash below is auto-replaced by GitHub Actions on every push.
+  // You never need to touch this manually.
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js?v=2', { updateViaCache: 'none' }).then(reg => {
-        console.log('SW registered:', reg.scope);
-        reg.update();
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'activated') {
-              console.log('New SW activated — reloading for fresh content');
-              window.location.reload();
-            }
+      navigator.serviceWorker.register('sw.js?v=BUILD_HASH', { updateViaCache: 'none' })
+        .then(reg => {
+          console.log('SW registered:', reg.scope);
+          reg.update();
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'activated') {
+                console.log('New SW activated — reloading for fresh content');
+                window.location.reload();
+              }
+            });
           });
-        });
-      }).catch(err => console.log('SW registration failed:', err));
+        }).catch(err => console.log('SW registration failed:', err));
+
+      // Reload when SW signals it has taken over an already-open tab
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'SW_ACTIVATED') {
+          console.log('SW signalled activation — reloading');
+          window.location.reload();
+        }
+      });
     });
   }
 
@@ -737,10 +748,9 @@
           </div>
         </div>
       `;
-      // Attach click event for flipping
-      flipCard.addEventListener('click', (e) => { 
-        e.stopPropagation(); 
-        flipCard.classList.toggle('flipped'); 
+      flipCard.addEventListener('click', (e) => {
+        e.stopPropagation();
+        flipCard.classList.toggle('flipped');
       });
       container.appendChild(flipCard);
     }
