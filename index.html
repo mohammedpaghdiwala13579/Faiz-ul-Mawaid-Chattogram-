@@ -17,11 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Naskh+Arabic:wght@500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       background: #f4ede5;
@@ -42,13 +38,10 @@
       position: relative;
     }
 
-    /* LOADING SCREEN */
     .loading-screen {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: linear-gradient(145deg, #f8f2e9 0%, #efe3d6 100%);
       display: flex;
       align-items: center;
@@ -71,18 +64,17 @@
       width: 86%;
       max-width: 320px;
       text-align: center;
-      box-shadow: 0 25px 45px -12px rgba(45, 30, 20, 0.25), 0 0 0 1px rgba(235, 210, 175, 0.4) inset;
+      box-shadow: 0 25px 45px -12px rgba(45,30,20,0.25), 0 0 0 1px rgba(235,210,175,0.4) inset;
       animation: gentleFloat 2.2s infinite ease-in-out;
     }
 
     @keyframes gentleFloat {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
+      50%       { transform: translateY(-5px); }
     }
 
     .loading-logo {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       margin: 0 auto 1.2rem;
       background: #fff1e2;
       border-radius: 28px;
@@ -91,11 +83,7 @@
       justify-content: center;
     }
 
-    .loading-logo img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-    }
+    .loading-logo img { width: 60px; height: 60px; object-fit: contain; }
 
     .loading-title {
       font-family: 'Playfair Display', serif;
@@ -123,8 +111,7 @@
     }
 
     .dot {
-      width: 11px;
-      height: 11px;
+      width: 11px; height: 11px;
       background: #c98f4b;
       border-radius: 50%;
       display: inline-block;
@@ -136,7 +123,7 @@
 
     @keyframes bounce {
       0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-      40% { transform: scale(1.1); opacity: 1; }
+      40%            { transform: scale(1.1); opacity: 1; }
     }
 
     .loading-message {
@@ -160,7 +147,6 @@
       display: inline-block;
     }
 
-    /* MAIN UI */
     .one-page-box {
       width: 100%;
       background: transparent;
@@ -171,11 +157,8 @@
       transition: opacity 0.5s ease;
     }
 
-    .one-page-box.visible {
-      opacity: 1;
-    }
+    .one-page-box.visible { opacity: 1; }
 
-    /* HEADER WITH BACKGROUND IMAGE - LARGER, 80% OPACITY IMAGE, TEXT COLOR ADJUSTED */
     .micro-header {
       background: #e8dfd3;
       border-radius: 40px;
@@ -197,10 +180,8 @@
     .micro-header::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(232, 223, 211, 0.2);
       backdrop-filter: blur(1px);
       z-index: 0;
@@ -216,11 +197,10 @@
     }
 
     .logo-micro {
-      width: 70px;
-      height: 70px;
+      width: 70px; height: 70px;
       border-radius: 20px;
       object-fit: contain;
-      background: rgba(255, 251, 245, 0.9);
+      background: rgba(255,251,245,0.9);
       padding: 5px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     }
@@ -237,7 +217,7 @@
       font-size: 1.8rem;
       font-weight: 800;
       color: #1e140c;
-      text-shadow: 0 2px 5px rgba(255, 250, 240, 0.9);
+      text-shadow: 0 2px 5px rgba(255,250,240,0.9);
       letter-spacing: 0.3px;
     }
 
@@ -246,11 +226,10 @@
       font-size: 0.8rem;
       font-weight: 600;
       color: #3d2b18;
-      text-shadow: 0 1px 4px rgba(255, 245, 230, 0.9);
+      text-shadow: 0 1px 4px rgba(255,245,230,0.9);
     }
 
     .install-btn {
-      background: #8b6a47;
       border: none;
       padding: 12px 22px;
       border-radius: 50px;
@@ -268,28 +247,14 @@
       position: relative;
       z-index: 5;
       backdrop-filter: blur(4px);
-      background: rgba(107, 78, 49, 0.92);
+      background: rgba(107,78,49,0.92);
       border: 1px solid rgba(255,255,200,0.3);
     }
 
-    .install-btn:hover {
-      background: #DC143C;
-      transform: scale(1.02);
-    }
+    .install-btn:hover  { background: #DC143C; transform: scale(1.02); }
+    .install-btn:active { transform: scale(0.98); }
+    .install-btn.hidden { display: none; }
 
-    .install-btn:active {
-      transform: scale(0.98);
-    }
-
-    .install-btn.hidden {
-      display: none;
-    }
-
-    .install-icon {
-      font-size: 1.1rem;
-    }
-
-    /* FOOTER WITH BACKGROUND IMAGE - 80% OPACITY, TEXT ADJUSTED */
     .tiffin-footer {
       background: #e8dfd3;
       border-radius: 28px;
@@ -307,11 +272,9 @@
     .tiffin-footer::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(232, 223, 211, 0.2);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(232,223,211,0.2);
       backdrop-filter: blur(0.6px);
       z-index: 0;
       border-radius: 28px;
@@ -326,7 +289,7 @@
       margin-bottom: 6px;
       position: relative;
       z-index: 2;
-      text-shadow: 0 1px 4px rgba(255, 250, 240, 0.9);
+      text-shadow: 0 1px 4px rgba(255,250,240,0.9);
       letter-spacing: 0.3px;
     }
 
@@ -340,7 +303,7 @@
     }
 
     .rule {
-      background: rgba(253, 247, 239, 0.8);
+      background: rgba(253,247,239,0.8);
       backdrop-filter: blur(3px);
       padding: 4px 12px;
       border-radius: 40px;
@@ -351,16 +314,12 @@
       align-items: center;
       gap: 3px;
       white-space: nowrap;
-      border: 1px solid rgba(255, 250, 235, 0.7);
+      border: 1px solid rgba(255,250,235,0.7);
       text-shadow: 0 1px 2px white;
     }
 
-    .rule strong {
-      font-weight: 700;
-      color: #8b5e34;
-    }
+    .rule strong { font-weight: 700; color: #8b5e34; }
 
-    /* GRID - fixed, no outer scroll */
     .grid-2x3 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -377,22 +336,18 @@
 
     .flip-card-inner {
       position: relative;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       transition: transform 0.35s ease;
       transform-style: preserve-3d;
       border-radius: 18px;
       min-height: 140px;
     }
 
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
 
     .card-front, .card-back {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       backface-visibility: hidden;
       border-radius: 18px;
       padding: 7px 8px 6px 8px;
@@ -401,10 +356,8 @@
       background: #fffffffb;
       border: 1px solid #dfceb6;
       box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
+      overflow: hidden;
     }
 
     .card-back {
@@ -412,7 +365,6 @@
       background: #fefaf4;
     }
 
-    /* ===== SCROLLABLE CONTENT INSIDE CARD ===== */
     .menu-text {
       font-size: 0.9rem;
       line-height: 1.35;
@@ -427,17 +379,9 @@
       scrollbar-width: thin;
       padding-right: 2px;
     }
-    .menu-text::-webkit-scrollbar {
-      width: 3px;
-    }
-    .menu-text::-webkit-scrollbar-track {
-      background: #f0e2d2;
-      border-radius: 6px;
-    }
-    .menu-text::-webkit-scrollbar-thumb {
-      background: #c9a87c;
-      border-radius: 6px;
-    }
+    .menu-text::-webkit-scrollbar { width: 3px; }
+    .menu-text::-webkit-scrollbar-track { background: #f0e2d2; border-radius: 6px; }
+    .menu-text::-webkit-scrollbar-thumb { background: #c9a87c; border-radius: 6px; }
 
     .extra-detail {
       font-size: 0.85rem;
@@ -453,17 +397,9 @@
       white-space: pre-line;
       scrollbar-width: thin;
     }
-    .extra-detail::-webkit-scrollbar {
-      width: 3px;
-    }
-    .extra-detail::-webkit-scrollbar-track {
-      background: #f0e2d2;
-      border-radius: 6px;
-    }
-    .extra-detail::-webkit-scrollbar-thumb {
-      background: #c9a87c;
-      border-radius: 6px;
-    }
+    .extra-detail::-webkit-scrollbar { width: 3px; }
+    .extra-detail::-webkit-scrollbar-track { background: #f0e2d2; border-radius: 6px; }
+    .extra-detail::-webkit-scrollbar-thumb { background: #c9a87c; border-radius: 6px; }
 
     .day-row {
       display: flex;
@@ -513,56 +449,136 @@
       flex-shrink: 0;
     }
 
-    /* ensure cards have consistent height and content area grows */
-    .card-front, .card-back {
+    /* ── MENU LINES ── */
+    .menu-line {
+      display: block;
+      border-radius: 5px;
+      padding: 0 3px;
+      margin: 1px 0;
+      line-height: 1.4;
+      /* default text color inherited from .menu-text */
+    }
+
+    /* When a line has a custom color from Sheets, the color is set inline */
+    .menu-line.has-color {
+      font-weight: 800;
+      padding: 1px 4px;
+      border-radius: 6px;
+      /* color is applied inline via style="color:..." */
+    }
+
+    /* ── SPEAK BUTTON ── */
+    .card-bottom-row {
       display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .speak-btn {
+      background: none;
+      border: 1px solid #e2ccb0;
+      border-radius: 30px;
+      padding: 3px 9px 3px 7px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.48rem;
+      font-weight: 600;
+      color: #9b7048;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.18s, border-color 0.18s, transform 0.1s;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .speak-btn:active { transform: scale(0.93); }
+    .speak-btn:hover  { background: #fdf3e7; border-color: #c9a060; }
+    .speak-btn svg    { width: 10px; height: 10px; flex-shrink: 0; }
+
+    .speak-btn.speaking { background: #fff4e0; border-color: #c9a060; color: #7a5020; }
+    .speak-btn.speaking .speak-icon { display: none; }
+    .speak-btn.loading  .speak-icon { display: none; }
+    .speak-btn .speak-wave { display: none; }
+    .speak-btn.speaking .speak-wave,
+    .speak-btn.loading  .speak-wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 10px;
+    }
+
+    .speak-wave span {
+      display: block;
+      width: 2.5px;
+      border-radius: 2px;
+      background: #c9a060;
+      animation: waveBar 0.7s ease-in-out infinite alternate;
+    }
+    .speak-wave span:nth-child(1) { height: 4px;  animation-delay: 0s; }
+    .speak-wave span:nth-child(2) { height: 8px;  animation-delay: 0.12s; }
+    .speak-wave span:nth-child(3) { height: 6px;  animation-delay: 0.24s; }
+    .speak-wave span:nth-child(4) { height: 10px; animation-delay: 0.36s; }
+    .speak-wave span:nth-child(5) { height: 5px;  animation-delay: 0.18s; }
+
+    @keyframes waveBar {
+      from { transform: scaleY(0.4); opacity: 0.6; }
+      to   { transform: scaleY(1);   opacity: 1; }
+    }
+
+    .flip-card.speaking .card-front {
+      box-shadow: 0 0 0 2px #c9a060, 0 4px 18px rgba(180,124,68,0.22);
     }
 
     @media (max-width: 520px) {
-      .flip-card { min-height: 150px; }
-      .menu-text { font-size: 0.85rem; }
-      .extra-detail { font-size: 0.7rem; }
+      .flip-card   { min-height: 150px; }
+      .menu-text   { font-size: 0.85rem; }
+      .extra-detail{ font-size: 0.7rem; }
       .install-btn { padding: 10px 16px; font-size: 0.8rem; }
       .chatt-micro { font-size: 1.5rem; }
-      .logo-micro { width: 54px; height: 54px; }
-      .micro-header { padding: 16px 18px; }
+      .logo-micro  { width: 54px; height: 54px; }
+      .micro-header{ padding: 16px 18px; }
     }
 
     @media (max-width: 400px) {
-      .flip-card { min-height: 145px; }
-      .menu-text { font-size: 0.8rem; }
+      .flip-card   { min-height: 145px; }
+      .menu-text   { font-size: 0.8rem; }
       .install-btn { padding: 8px 14px; font-size: 0.7rem; }
-      .logo-micro { width: 48px; height: 48px; }
+      .logo-micro  { width: 48px; height: 48px; }
       .chatt-micro { font-size: 1.3rem; }
-      .arabic-micro { font-size: 0.7rem; }
+      .arabic-micro{ font-size: 0.7rem; }
     }
 
     @keyframes fadeSlideUp {
       from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .grid-2x3 .flip-card { animation: fadeSlideUp 0.4s ease backwards; }
-    .grid-2x3 .flip-card:nth-child(1) { animation-delay: 0.02s; }
-    .grid-2x3 .flip-card:nth-child(2) { animation-delay: 0.05s; }
-    .grid-2x3 .flip-card:nth-child(3) { animation-delay: 0.08s; }
-    .grid-2x3 .flip-card:nth-child(4) { animation-delay: 0.11s; }
-    .grid-2x3 .flip-card:nth-child(5) { animation-delay: 0.14s; }
-    .grid-2x3 .flip-card:nth-child(6) { animation-delay: 0.17s; }
+    .grid-2x3 .flip-card                 { animation: fadeSlideUp 0.4s ease backwards; }
+    .grid-2x3 .flip-card:nth-child(1)    { animation-delay: 0.02s; }
+    .grid-2x3 .flip-card:nth-child(2)    { animation-delay: 0.05s; }
+    .grid-2x3 .flip-card:nth-child(3)    { animation-delay: 0.08s; }
+    .grid-2x3 .flip-card:nth-child(4)    { animation-delay: 0.11s; }
+    .grid-2x3 .flip-card:nth-child(5)    { animation-delay: 0.14s; }
+    .grid-2x3 .flip-card:nth-child(6)    { animation-delay: 0.17s; }
   </style>
 </head>
 <body>
 <div class="app-wrapper">
+
   <!-- Loading overlay -->
   <div id="beautifulLoading" class="loading-screen">
     <div class="loading-card">
       <div class="loading-logo">
-        <img src="https://i.ibb.co.com/qLsxHhDf/logo-color.png" alt="logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22%3E%3Crect fill=%22%23d9c7b0%22 width=%2260%22 height=%2260%22 rx=%2218%22/%3E%3Ctext x=%2230%22 y=%2238%22 text-anchor=%22middle%22 fill=%22%234a3728%22 font-size=%2222%22%3EC%3C/text%3E%3C/svg%3E'">
+        <img src="https://i.ibb.co.com/qLsxHhDf/logo-color.png" alt="logo"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22%3E%3Crect fill=%22%23d9c7b0%22 width=%2260%22 height=%2260%22 rx=%2218%22/%3E%3Ctext x=%2230%22 y=%2238%22 text-anchor=%22middle%22 fill=%22%234a3728%22 font-size=%2222%22%3EC%3C/text%3E%3C/svg%3E'">
       </div>
       <div class="loading-title">Chattogram</div>
       <div class="loading-sub">الحمد لله والشكر لوليه</div>
-      <div class="spinner-elegant"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="spinner-elegant">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
       <div class="loading-message" id="loadingStatusMsg">Fetching today's tiffin...</div>
       <div class="loading-quote">✨ From our kitchen to your table ✨</div>
     </div>
@@ -572,21 +588,18 @@
   <div class="one-page-box" id="mainContent">
     <div class="micro-header">
       <div class="header-left">
-        <img src="https://i.ibb.co.com/qLsxHhDf/logo-color.png" alt="logo" class="logo-micro" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2238%22 height=%2238%22%3E%3Crect fill=%22%23d4c3af%22 width=%2238%22 height=%2238%22 rx=%2212%22/%3E%3Ctext x=%2219%22 y=%2224%22 text-anchor=%22middle%22 fill=%22%234a3728%22 font-size=%2212%22%3EC%3C/text%3E%3C/svg%3E'">
+        <img src="https://i.ibb.co.com/qLsxHhDf/logo-color.png" alt="logo" class="logo-micro"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2238%22 height=%2238%22%3E%3Crect fill=%22%23d4c3af%22 width=%2238%22 height=%2238%22 rx=%2212%22/%3E%3Ctext x=%2219%22 y=%2224%22 text-anchor=%22middle%22 fill=%22%234a3728%22 font-size=%2212%22%3EC%3C/text%3E%3C/svg%3E'">
         <div class="title-micro">
           <div class="chatt-micro">Chattogram</div>
           <div class="arabic-micro">الحمد لله والشكر لوليه</div>
         </div>
       </div>
-      <button id="installAppBtn" class="install-btn">
-        Install
-      </button>
+      <button id="installAppBtn" class="install-btn">Install</button>
     </div>
 
-    <!-- Fixed grid (no outer scroll wrapper) -->
     <div class="grid-2x3" id="compactFlipGrid">
-      <div class="loading-state" style="grid-column: span 2; background:#fff9f0; text-align:center; padding:20px;">
-        <div class="mini-spin"></div>
+      <div style="grid-column:span 2; background:#fff9f0; text-align:center; padding:20px;">
         <span style="font-size:0.65rem;">Loading menu...</span>
       </div>
     </div>
@@ -594,7 +607,7 @@
     <div class="tiffin-footer">
       <div class="rules-title">Tiffin Rules</div>
       <div class="rules-wrap">
-        <span class="rule">🧼 Wash & dry</span>
+        <span class="rule">🧼 Wash &amp; dry</span>
         <span class="rule">🔥 <strong>Do NOT heat</strong></span>
         <span class="rule">💳 FMB Card</span>
         <span class="rule">⏰ Before 10:00 AM</span>
@@ -604,17 +617,14 @@
 </div>
 
 <script>
-  // ================= PWA INSTALL LOGIC =================
+  // ── PWA INSTALL ──────────────────────────────────────────
   let deferredPrompt = null;
   const installBtn = document.getElementById('installAppBtn');
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (installBtn) {
-      installBtn.style.display = 'flex';
-      console.log('Install button shown');
-    }
+    if (installBtn) installBtn.style.display = 'flex';
   });
 
   if (installBtn) {
@@ -622,165 +632,303 @@
       if (deferredPrompt) {
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
-        console.log(`User ${outcome}`);
         deferredPrompt = null;
         installBtn.style.display = 'none';
       } else {
-        alert('To install this app, tap the Share button and select "Add to Home Screen"');
+        alert('To install, tap Share then "Add to Home Screen"');
       }
     });
   }
 
-  // ================= SERVICE WORKER =================
-  // The ?v= hash below is auto-replaced by GitHub Actions on every push.
-  // You never need to touch this manually.
+  // ── SERVICE WORKER ───────────────────────────────────────
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js?v=BUILD_HASH', { updateViaCache: 'none' })
         .then(reg => {
-          console.log('SW registered:', reg.scope);
           reg.update();
           reg.addEventListener('updatefound', () => {
-            const newWorker = reg.installing;
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'activated') {
-                console.log('New SW activated — reloading for fresh content');
-                window.location.reload();
-              }
+            const nw = reg.installing;
+            nw.addEventListener('statechange', () => {
+              if (nw.state === 'activated') window.location.reload();
             });
           });
-        }).catch(err => console.log('SW registration failed:', err));
+        }).catch(err => console.log('SW failed:', err));
 
-      // Reload when SW signals it has taken over an already-open tab
-      navigator.serviceWorker.addEventListener('message', (event) => {
-        if (event.data && event.data.type === 'SW_ACTIVATED') {
-          console.log('SW signalled activation — reloading');
-          window.location.reload();
-        }
+      navigator.serviceWorker.addEventListener('message', (e) => {
+        if (e.data && e.data.type === 'SW_ACTIVATED') window.location.reload();
       });
     });
   }
 
-  // ========== MENU FETCH & RENDER ==========
-  const MENU_API = "https://script.google.com/macros/s/AKfycbyHG_-AWNUsnuexSHXzTbC9GBNvNgbAMq9N49ridmqzypGNsHo697TETPkxAVitq0bO/exec";
+  // ── MENU API ─────────────────────────────────────────────
+  const MENU_API = "https://script.google.com/macros/s/AKfycbwBXxL2sH1IY0eO4z50bhE547cBnuy7wwF46G0z2_fpumhTTVJTvh0XRsjDlz8PGUI/exec";
 
   function escapeText(str) {
     if (!str) return '';
-    return String(str).replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
   }
+
   function escapeWithBreaks(str) {
     if (!str) return '';
     return escapeText(str).replace(/\n/g, '<br>');
   }
 
-  async function fetchMenuDataWithProgress(statusCallback) {
+  async function fetchMenuData(statusCb) {
+    statusCb('Connecting to kitchen...');
+    const ctrl = new AbortController();
+    const tid  = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(MENU_API, { signal: ctrl.signal });
+    clearTimeout(tid);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    statusCb('Unfolding recipes...');
+    const json = await resp.json();
+    if (json && json.error) throw new Error(json.message);
+    if (!Array.isArray(json) || !json.length) return [];
+    statusCb('✨ Menu ready! ✨');
+    return json.map(row => ({
+      day        : row.day   || '',
+      month      : row.month || '',
+      date       : row.date  || '',
+      menu       : row.menu  || '',
+      extra      : row.extra || '',
+      menuColors : Array.isArray(row.menuColors) ? row.menuColors : []
+    }));
+  }
+
+  // ── SPEAK SYSTEM ─────────────────────────────────────────
+  const speakCache = {};
+  let currentUtterance = null;
+  let currentSpeakBtn  = null;
+  let currentFlipCard  = null;
+
+  function stopSpeaking() {
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (currentSpeakBtn) currentSpeakBtn.classList.remove('speaking', 'loading');
+    if (currentFlipCard) currentFlipCard.classList.remove('speaking');
+    currentUtterance = currentSpeakBtn = currentFlipCard = null;
+  }
+
+  async function fetchNaturalSpeech(dayText, dateText, menuText) {
+    const systemPrompt =
+      'You convert a Bengali tiffin menu (written in Roman/English letters, called Banglish) ' +
+      'into a single natural English sentence for text-to-speech. ' +
+      'Always begin with the day and date (e.g. "On Saturday, June 14th, ..."). ' +
+      'Then describe each dish warmly. ' +
+      'Output only the final sentence — no explanation, no preamble, no markdown. ' +
+      'Keep it under 50 words.';
+
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model      : 'claude-sonnet-4-20250514',
+        max_tokens : 120,
+        system     : systemPrompt,
+        messages   : [{ role: 'user', content: `Day: ${dayText}\nDate: ${dateText}\nMenu: ${menuText}` }]
+      })
+    });
+    if (!resp.ok) throw new Error('API ' + resp.status);
+    const data = await resp.json();
+    const blk  = (data.content || []).find(b => b.type === 'text');
+    return blk ? blk.text.trim() : menuText;
+  }
+
+  function pickBestVoice() {
+    const voices = window.speechSynthesis.getVoices();
+    const prefs  = [
+      v => /samantha|karen|moira|tessa/i.test(v.name),
+      v => /google us english/i.test(v.name),
+      v => /zira|david|mark/i.test(v.name),
+      v => v.lang === 'en-US' && !v.localService,
+      v => v.lang === 'en-US',
+      v => v.lang.startsWith('en')
+    ];
+    for (const test of prefs) { const f = voices.find(test); if (f) return f; }
+    return null;
+  }
+
+  function doSpeak(text, btn, card) {
+    if (!('speechSynthesis' in window)) { alert('TTS not supported.'); return; }
+    window.speechSynthesis.cancel();
+    const utter  = new SpeechSynthesisUtterance(text);
+    utter.lang   = 'en-US';
+    utter.rate   = 0.88;
+    utter.pitch  = 1.05;
+    utter.volume = 1;
+    const voice  = pickBestVoice();
+    if (voice) utter.voice = voice;
+
+    currentUtterance = utter;
+    currentSpeakBtn  = btn;
+    currentFlipCard  = card;
+
+    btn.classList.remove('loading');
+    btn.classList.add('speaking');
+    card.classList.add('speaking');
+
+    const nudge = setInterval(() => {
+      if (!window.speechSynthesis.speaking) { clearInterval(nudge); return; }
+      window.speechSynthesis.pause();
+      window.speechSynthesis.resume();
+    }, 5000);
+
+    utter.onend  = () => { clearInterval(nudge); stopSpeaking(); };
+    utter.onerror= () => { clearInterval(nudge); stopSpeaking(); };
+    window.speechSynthesis.speak(utter);
+  }
+
+  async function handleSpeakTap(idx, day, date, menuRaw, btn, card) {
+    if (card.classList.contains('speaking')) { stopSpeaking(); return; }
+    stopSpeaking();
+    btn.classList.add('loading');
+    currentSpeakBtn = btn;
+    currentFlipCard = card;
+
+    let text;
     try {
-      statusCallback('Connecting to kitchen...');
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 8000);
-      const resp = await fetch(MENU_API, { signal: controller.signal });
-      clearTimeout(timeoutId);
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      statusCallback('Unfolding today\'s recipes...');
-      const json = await resp.json();
-      if (json && json.error) throw new Error(json.message);
-      if (Array.isArray(json) && json.length) {
-        statusCallback('✨ Menu ready! ✨');
-        return json.map(row => ({
-          day: row.day || '',
-          month: row.month || '',
-          date: row.date || '',
-          menu: row.menu || '',
-          extra: row.extra || ''
-        }));
-      }
-      return [];
-    } catch (err) {
-      console.warn(err);
-      throw err;
+      text = speakCache[idx] || (speakCache[idx] = await fetchNaturalSpeech(day, date, menuRaw));
+    } catch (e) {
+      text = `On ${day} ${date}, the menu includes: ${menuRaw.replace(/\n/g, ', ')}`;
+    }
+
+    if (!window.speechSynthesis.getVoices().length) {
+      window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.onvoiceschanged = null;
+        doSpeak(text, btn, card);
+      };
+    } else {
+      doSpeak(text, btn, card);
     }
   }
 
-  function renderCompactCards(menuItems) {
+  // ── RENDER CARDS ─────────────────────────────────────────
+  function renderCards(menuItems) {
     const container = document.getElementById('compactFlipGrid');
     if (!container) return;
     container.innerHTML = '';
+
+    const fallbackDays = ['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday'];
+
     for (let i = 0; i < 6; i++) {
-      const source = (i < menuItems.length) ? menuItems[i] : null;
-      let dayVal = "—", monthVal = "", dateVal = "", menuHtml = "To be announced", extraHtml = "No extra information yet.";
-      if (source) {
-        dayVal = (source.day && source.day.trim()) ? source.day : "—";
-        monthVal = (source.month && source.month.trim()) ? source.month : "";
-        dateVal = (source.date && source.date.trim()) ? source.date : "";
-        const rawMenu = (source.menu && source.menu.trim()) ? source.menu : "Fresh daily dish";
-        const rawExtra = (source.extra && source.extra.trim()) ? source.extra : "Prepared with authentic ingredients.";
-        menuHtml = escapeWithBreaks(rawMenu);
-        extraHtml = escapeWithBreaks(rawExtra);
-      } else {
-        const genericDays = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-        dayVal = genericDays[i % 6];
-        menuHtml = "Menu update soon";
-        extraHtml = "Please check back later for delicious details.";
-      }
-      let dateDisplay = "";
-      if (monthVal && dateVal) dateDisplay = `${escapeText(monthVal)} ${escapeText(dateVal)}`;
-      else if (monthVal) dateDisplay = escapeText(monthVal);
-      else if (dateVal) dateDisplay = escapeText(dateVal);
-      const safeDay = escapeText(dayVal);
-      const flipCard = document.createElement('div');
-      flipCard.className = 'flip-card';
-      flipCard.innerHTML = `
+      const src = menuItems[i] || null;
+
+      const dayVal   = src && src.day.trim()   ? src.day   : fallbackDays[i];
+      const monthVal = src && src.month.trim() ? src.month : '';
+      const dateVal  = src && src.date.trim()  ? src.date  : '';
+      const menuRaw  = src && src.menu.trim()  ? src.menu  : 'Menu update soon';
+      const extraRaw = src && src.extra.trim() ? src.extra : 'Prepared with authentic ingredients.';
+      const colors   = src ? (src.menuColors || []) : [];
+
+      // Build date display
+      let dateDisplay = '';
+      if (monthVal && dateVal)   dateDisplay = `${escapeText(monthVal)} ${escapeText(dateVal)}`;
+      else if (monthVal)         dateDisplay = escapeText(monthVal);
+      else if (dateVal)          dateDisplay = escapeText(dateVal);
+
+      // ── Build menuHtml: one span per line, colored if sheet gave a color ──
+      const menuHtml = menuRaw.split('\n').map((line, li) => {
+        const safe  = escapeText(line);
+        const color = (colors[li] || '').toString().trim().toLowerCase();
+
+        // Skip null, empty, default black (#000000), and white (#ffffff)
+        const isDefault = !color
+          || color === 'null'
+          || color === '#ffffff'
+          || color === '#fff'
+          || color === '#000000'
+          || color === '#000';
+
+        if (!isDefault) {
+          return `<span class="menu-line has-color" style="color:${color};">${safe}</span>`;
+        }
+        return `<span class="menu-line">${safe}</span>`;
+      }).join('');
+
+      const extraHtml      = escapeWithBreaks(extraRaw);
+      const safeDay        = escapeText(dayVal);
+      const dateForSpeech  = `${monthVal} ${dateVal}`.trim();
+
+      // Build card DOM
+      const card = document.createElement('div');
+      card.className = 'flip-card';
+      card.innerHTML = `
         <div class="flip-card-inner">
           <div class="card-front">
-            <div class="day-row"><span class="day-name">${safeDay}</span>${dateDisplay ? `<span class="date-chip">${dateDisplay}</span>` : '<span class="date-chip">—</span>'}</div>
+            <div class="day-row">
+              <span class="day-name">${safeDay}</span>
+              <span class="date-chip">${dateDisplay || '—'}</span>
+            </div>
             <div class="menu-text">${menuHtml}</div>
-            <div class="tap-hint">Tap for details</div>
+            <div class="card-bottom-row">
+              <button class="speak-btn" type="button" aria-label="Read menu aloud">
+                <span class="speak-icon">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#c9a060"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#c9a060" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" stroke="#c9a060" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="speak-wave">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+                Read aloud
+              </button>
+              <span class="tap-hint">Tap for details</span>
+            </div>
           </div>
           <div class="card-back">
             <div class="extra-head">Info</div>
             <div class="extra-detail">${extraHtml}</div>
             <div class="back-hint">↺ tap return</div>
           </div>
-        </div>
-      `;
-      flipCard.addEventListener('click', (e) => {
+        </div>`;
+
+      const speakBtn = card.querySelector('.speak-btn');
+      const cardIdx  = i;
+      const cardDay  = dayVal;
+      const cardDate = dateForSpeech;
+      const cardMenu = menuRaw;
+
+      speakBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        flipCard.classList.toggle('flipped');
+        handleSpeakTap(cardIdx, cardDay, cardDate, cardMenu, this, card);
       });
-      container.appendChild(flipCard);
+
+      card.addEventListener('click', () => {
+        if (!card.classList.contains('flipped')) stopSpeaking();
+        card.classList.toggle('flipped');
+      });
+
+      container.appendChild(card);
     }
   }
 
+  // ── INIT ─────────────────────────────────────────────────
   async function initializeApp() {
-    const loadingOverlay = document.getElementById('beautifulLoading');
-    const mainUi = document.getElementById('mainContent');
-    const statusSpan = document.getElementById('loadingStatusMsg');
-    const updateStatus = (msg) => { if (statusSpan) statusSpan.innerText = msg; };
+    const overlay   = document.getElementById('beautifulLoading');
+    const mainUi    = document.getElementById('mainContent');
+    const statusEl  = document.getElementById('loadingStatusMsg');
+    const setStatus = msg => { if (statusEl) statusEl.innerText = msg; };
+
     try {
-      const menuData = await fetchMenuDataWithProgress(updateStatus);
-      updateStatus('Almost there...');
-      await new Promise(resolve => setTimeout(resolve, 200));
-      if (menuData && menuData.length > 0) renderCompactCards(menuData);
-      else { const emptySlots = Array(6).fill(null); renderCompactCards(emptySlots); }
-      if (loadingOverlay) {
-        loadingOverlay.classList.add('hide');
-        setTimeout(() => { if (loadingOverlay) loadingOverlay.style.display = 'none'; }, 700);
-      }
-      if (mainUi) mainUi.classList.add('visible');
+      const data = await fetchMenuData(setStatus);
+      setStatus('Almost there...');
+      await new Promise(r => setTimeout(r, 200));
+      renderCards(data.length ? data : Array(6).fill(null));
     } catch (err) {
-      updateStatus('Using local menu...');
-      setTimeout(() => {
-        const fallbackSlots = Array(6).fill(null);
-        renderCompactCards(fallbackSlots);
-        if (loadingOverlay) { loadingOverlay.classList.add('hide'); setTimeout(() => { if (loadingOverlay) loadingOverlay.style.display = 'none'; }, 600); }
-        if (mainUi) mainUi.classList.add('visible');
-      }, 500);
+      setStatus('Using local menu...');
+      await new Promise(r => setTimeout(r, 500));
+      renderCards(Array(6).fill(null));
     }
+
+    if (overlay) {
+      overlay.classList.add('hide');
+      setTimeout(() => { if (overlay) overlay.style.display = 'none'; }, 700);
+    }
+    if (mainUi) mainUi.classList.add('visible');
   }
 
   window.addEventListener('DOMContentLoaded', () => {
